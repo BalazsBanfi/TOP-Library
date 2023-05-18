@@ -1,0 +1,158 @@
+/*****************
+***Root section***
+******************/
+
+:root {
+  --headerBG: #fed7aa;
+  --mainBg: #d1fae5;
+  --formBG: #fed7aa;
+  --bgButton: #a3a3a3;
+  --colorButton: red;
+  --padS: 0.5rem;
+  --padM: 1rem;
+  --padL: 1.5rem;
+  --padXL: 2rem;
+}
+
+* {
+  /* border: 1px solid red; */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+html {
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  color: var(--black);
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  text-align: left;
+  background-color: white;
+  display: grid;
+  grid-template: 150px 1fr / 1fr;
+  justify-items: center;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/***********
+***Header***
+***********/
+
+header {
+  width: 100%;
+  padding: var(--padXL);
+  background-color: var(--headerBG);
+  color: var(--black);
+  font-weight: 700;
+  display: grid;
+  grid-template: 1fr / repeat(3, 1fr);
+  align-items: center;
+  justify-items: center;
+}
+
+#add {
+  background-color: var(--bgButton);
+  color: var(--colorButton);
+  border-radius: 5px;
+  outline: 1px solid grey;
+  padding: var(--padM) var(--padS);
+  cursor: pointer;
+}
+
+#add:hover {
+  opacity: 0.5;
+  outline: 2px solid green;
+  transition-duration: 0.3s;
+}
+
+#add:active {
+  box-shadow: 0 2px #666;
+  transform: translateY(3px);
+}
+
+/*********
+***Main***
+*********/
+
+main {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  background-color: var(--mainBg);
+  position: relative;
+}
+
+/***************
+***Input form***
+***************/
+
+form {
+  width: 400px;
+  padding: var(--padXL) var(--padM);
+  background-color: var(--formBG);
+  text-align: center;
+  display: grid;
+  grid-template: repeat(5, 1fr) / 1fr 5fr;
+  gap: var(--padM);
+}
+
+form h1 {
+  grid-column: 1 / 3;
+}
+
+form label,
+form input[type="submit"] {
+  margin-top: var(--padM);
+  margin-bottom: var(--padS);
+}
+
+form input {
+  font-size: 1.25rem;
+}
+
+#submit {
+  grid-column: 2 / 3;
+  padding: var(--padS);
+  justify-self: center;
+  width: 60%;
+  border-radius: 5px;
+  background-color: var(--bgButton);
+  color: var(--colorButton);
+  cursor: pointer;
+}
+
+#submit:hover {
+  opacity: 0.5;
+  outline: 2px solid green;
+  transition-duration: 0.3s;
+}
+
+#submit:active {
+  box-shadow: 0 2px #666;
+  transform: translateY(3px);
+}
+
+/******************
+***Library cards***
+******************/
+
+.library {
+  position: absolute;
+}
+
+/************************
+***Media query section***
+************************/
+
+@media screen and (max-width: 1350px) {
+}
