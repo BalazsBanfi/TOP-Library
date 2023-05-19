@@ -102,7 +102,6 @@ form {
   padding: var(--padXL) var(--padM);
   background-color: var(--formBG);
   text-align: center;
-  /* display: grid; */
   display: none;
   grid-template: repeat(5, 1fr) / 1fr 5fr;
   gap: var(--padM);
@@ -193,6 +192,18 @@ form input {
 
 .false {
   color: red;
+}
+
+.true:hover,
+.false:hover {
+  opacity: 0.8;
+  outline: 2px solid grey;
+  transition-duration: 0.3s;
+}
+
+.true:active, .false:active {
+  box-shadow: 0 2px #222;
+  transform: translateY(3px);
 }
 
 .card > p:nth-child(4) {

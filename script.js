@@ -7,8 +7,10 @@ const pages = document.getElementById("pages");
 const read = document.getElementById("read");
 const submit = document.getElementById("submit");
 
+// Library array
 let myLibrary = [];
 
+// Object constuctor
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
@@ -16,18 +18,19 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
+// Object prototype with read toggle function
 Book.prototype.toggleReaded = function () {
-  console.log(this.read);
   this.read = !this.read;
-  console.log(this.read);
 };
 
+// Add new object0
 function addBookToLibrary() {
   myLibrary.push(
     new Book(title.value, author.value, pages.value, read.checked)
   );
 }
 
+// Set grid size depends on number of cards
 function setGrid() {
   let l = myLibrary.length;
   if (l < 5) {
@@ -43,6 +46,7 @@ function setGrid() {
   }
 }
 
+// Delete the selected card
 function deleteCard() {
   this.style.backgroundColor = "black";
   let k = this.parentNode.getAttribute("id");
@@ -50,30 +54,33 @@ function deleteCard() {
   showLibrary();
 }
 
+// Toggle read status on click
 function toggleRead() {
   let k = this.parentNode.getAttribute("id");
   myLibrary[k].toggleReaded();
   showLibrary();
 }
 
+// Show and refresh library on screen
 function showLibrary() {
+  setGrid();
   library.style.display = "grid";
   let l = myLibrary.length;
   document.querySelectorAll(".card").forEach((el) => el.remove());
   for (let i = 0; i < l; i++) {
     let cardSet = document.createElement("div");
     let Obj = myLibrary[i];
-    // Prints "name Jean-Luc Picard" followed by "rank Captain"
+
     Object.keys(Obj).forEach((key) => {
       const newP = document.createElement("p");
       newP.innerHTML = Obj[key];
       if (key === "read") {
         if (Obj[key] === true) {
           newP.classList.add("true");
-          newP.classList.add("read");
+          newP.innerHTML = "Done! 	&#128521;";
         } else {
           newP.classList.add("false");
-          newP.classList.add("read");
+          newP.innerHTML = "Not yet &#128538;";
         }
       }
       newP.addEventListener("click", toggleRead);
@@ -97,6 +104,7 @@ function showLibrary() {
   }
 }
 
+// Add new book button
 addBook.addEventListener("click", () => {
   event.preventDefault();
   library.style.display = "none";
@@ -109,7 +117,6 @@ submit.addEventListener("click", () => {
   addBookToLibrary();
   form.style.display = "none";
   addBook.style.display = "block";
-  setGrid();
   showLibrary();
 });
 
@@ -117,3 +124,5 @@ const magician = new Book("Harry Potter", "L.L. Martin", "1000", true);
 const lord = new Book("The Lord of The Rings", "Tolkien", "1200", false);
 myLibrary.push(lord);
 myLibrary.push(magician);
+
+showLibrary();
