@@ -238,11 +238,3 @@ form input {
   box-shadow: 0 2px #666;
   transform: translateY(3px);
 }
-
-
-/************************
-***Media query section***
-************************/
-
-@media screen and (max-width: 1350px) {
-}

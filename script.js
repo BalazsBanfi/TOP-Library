@@ -16,6 +16,12 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
+Book.prototype.toggleReaded = function () {
+  console.log(this.read);
+  this.read = !this.read;
+  console.log(this.read);
+};
+
 function addBookToLibrary() {
   myLibrary.push(
     new Book(title.value, author.value, pages.value, read.checked)
@@ -39,18 +45,16 @@ function setGrid() {
 
 function deleteCard() {
   this.style.backgroundColor = "black";
-  let k = this.parentNode.getAttribute('id');
+  let k = this.parentNode.getAttribute("id");
   myLibrary.splice(k, 1);
   showLibrary();
 }
 
 function toggleRead() {
-  this.style.backgroundColor = "black";
-  let k = this.parentNode.getAttribute('id');
-  myLibrary[k].read = !myLibrary[k].read;
+  let k = this.parentNode.getAttribute("id");
+  myLibrary[k].toggleReaded();
   showLibrary();
 }
-
 
 function showLibrary() {
   library.style.display = "grid";
@@ -72,7 +76,7 @@ function showLibrary() {
           newP.classList.add("read");
         }
       }
-      newP.addEventListener('click', toggleRead);
+      newP.addEventListener("click", toggleRead);
       cardSet.appendChild(newP);
     });
 
@@ -84,11 +88,11 @@ function showLibrary() {
     const deleteBtn = document.createElement("button");
     deleteBtn.innerHTML = "Delete";
     deleteBtn.classList.add("delete");
-    deleteBtn.addEventListener('click', deleteCard);
+    deleteBtn.addEventListener("click", deleteCard);
     cardSet.appendChild(deleteBtn);
 
     cardSet.classList.add("card");
-    cardSet.setAttribute('id', i);
+    cardSet.setAttribute("id", i);
     library.appendChild(cardSet);
   }
 }
