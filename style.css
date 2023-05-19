@@ -206,9 +206,11 @@ form input {
 
 .indexNo {
   color: blue;
+  border: 1px solid grey;
+  background-color: var(--mainBg);
   position: absolute;
-  top: 2px;
-  right: 2px;
+  top: 0px;
+  right: 0px;
 }
 
 /******************

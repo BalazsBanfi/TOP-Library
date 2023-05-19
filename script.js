@@ -38,6 +38,13 @@ function setGrid() {
   }
 }
 
+function deleteCard() {
+  this.style.backgroundColor = "black";
+  console.log("delete");
+  console.log(this.classList.value);
+  console.log(this.parentNode);
+}
+
 function showLibrary() {
   library.style.display = "grid";
   let l = myLibrary.length;
@@ -69,6 +76,7 @@ function showLibrary() {
     const deleteBtn = document.createElement("button");
     deleteBtn.innerHTML = "Delete";
     deleteBtn.classList.add("delete");
+    deleteBtn.addEventListener('click', deleteCard());
     cardSet.appendChild(deleteBtn);
 
     cardSet.classList.add("card");
