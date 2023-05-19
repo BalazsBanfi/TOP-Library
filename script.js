@@ -24,7 +24,6 @@ function addBookToLibrary() {
 
 function setGrid() {
   let l = myLibrary.length;
-  console.log(l);
   if (l < 5) {
     library.style.gridTemplate = "repeat(2, 1fr) / repeat(2, 1fr)";
   } else if (l < 9) {
@@ -40,9 +39,10 @@ function setGrid() {
 
 function deleteCard() {
   this.style.backgroundColor = "black";
-  console.log("delete");
-  console.log(this.classList.value);
-  console.log(this.parentNode);
+  console.log(this.parentNode.getAttribute('id'));
+  let k = this.parentNode.getAttribute('id');
+  myLibrary.splice(k, 1);
+  showLibrary();
 }
 
 function showLibrary() {
@@ -76,10 +76,11 @@ function showLibrary() {
     const deleteBtn = document.createElement("button");
     deleteBtn.innerHTML = "Delete";
     deleteBtn.classList.add("delete");
-    deleteBtn.addEventListener('click', deleteCard());
+    deleteBtn.addEventListener('click', deleteCard);
     cardSet.appendChild(deleteBtn);
 
     cardSet.classList.add("card");
+    cardSet.setAttribute('id', i);
     library.appendChild(cardSet);
   }
 }
@@ -96,7 +97,6 @@ submit.addEventListener("click", () => {
   addBookToLibrary();
   form.style.display = "none";
   addBook.style.display = "block";
-  console.table(myLibrary);
   setGrid();
   showLibrary();
 });
