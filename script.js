@@ -120,9 +120,12 @@ submit.addEventListener("click", () => {
   showLibrary();
 });
 
-const magician = new Book("Harry Potter", "L.L. Martin", "1000", true);
-const lord = new Book("The Lord of The Rings", "Tolkien", "1200", false);
+
+const donq = new Book("Don Quixote", "Miguel de Cervantes", "314", true);
+const proust = new Book("In search of lost time", "Marcel Proust", "425", true);
+const lord = new Book("The Lord of The Rings", "Tolkien", "870", false);
 myLibrary.push(lord);
-myLibrary.push(magician);
+myLibrary.push(proust);
+myLibrary.push(donq);
 
 showLibrary();
