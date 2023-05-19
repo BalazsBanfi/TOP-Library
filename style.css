@@ -66,6 +66,7 @@ header {
   border-radius: 5px;
   outline: 1px solid grey;
   padding: var(--padM) var(--padS);
+  display: block;
   cursor: pointer;
 }
 
@@ -147,10 +148,70 @@ form input {
 ***Library cards***
 ******************/
 
-.library {
+#library {
+  margin: 0 var(--padXL);
   display: grid;
-  grid-template: repeat(6, 1fr) / repeat(2, 1fr);
+  grid-template: repeat(2, 1fr) / repeat(6, 1fr);
+  grid-auto-rows: 1fr;
+  gap: var(--padM) var(--padXL);
   position: absolute;
+}
+
+.card {
+  width: 200px;
+  /* height: 250px; */
+  position: relative;
+  background-color: var(--formBG);
+}
+
+.card > p {
+  padding: var(--padS);
+  min-height: 65px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card > p:nth-child(1)::before {
+  content: "Title: ";
+  font-weight: 700;
+}
+
+.card > p:nth-child(2)::before {
+  content: "Author: ";
+  font-weight: 700;
+}
+
+.card > p:nth-child(3)::before {
+  content: "Pages: ";
+  font-weight: 700;
+}
+
+.true {
+  color: green;
+}
+
+.false {
+  color: red;
+}
+
+.card > p:nth-child(4) {
+  /* color: red; */
+  cursor: pointer;
+}
+
+.card > p:nth-child(4)::before {
+  content: "Read: ";
+  font-weight: 700;
+}
+
+.card > p:nth-child(5) {
+  color: blue;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: 2px;
+  right: 2px;
 }
 
 /************************
