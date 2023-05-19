@@ -1,4 +1,5 @@
 const addBook = document.getElementById("add");
+const form = document.getElementById("form");
 const title = document.getElementById("title");
 const author = document.getElementById("author");
 const pages = document.getElementById("pages");
@@ -15,26 +16,26 @@ function Book(title, author, pages, read) {
 }
 
 function addBookToLibrary() {
-  // do stuff here
+  myLibrary.push(
+    new Book(title.value, author.value, pages.value, read.checked)
+  );
 }
 
-submit.addEventListener("click", () => {
-  myLibrary.push(new Book(title.value, author.value, pages.value, read.value));
-
-  console.table(myLibrary);
-
-  console.table(title.value);
+addBook.addEventListener("click", () => {
   event.preventDefault();
+  form.style.display = "grid";
 });
 
-const magician = new Book("Harry Potter", "L.L. Martin", "1000", "read");
+submit.addEventListener("click", () => {
+  event.preventDefault();
+  addBookToLibrary();
+  form.style.display = "none";
+  console.table(myLibrary);
+});
 
-const lord = new Book(
-  "The Lord of The Rings",
-  "Tolkien",
-  "1200",
-  "Not read yet"
-);
+const magician = new Book("Harry Potter", "L.L. Martin", "1000", true);
+
+const lord = new Book("The Lord of The Rings", "Tolkien", "1200", false);
 
 myLibrary.push(lord);
 myLibrary.push(magician);

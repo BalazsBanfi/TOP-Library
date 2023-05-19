@@ -3,10 +3,10 @@
 ******************/
 
 :root {
-  --headerBG: #675D50;
-  --mainBg: #F3DEBA;
-  --formBG: #A9907E;
-  --bgButton: #ABC4AA;
+  --headerBG: #675d50;
+  --mainBg: #f3deba;
+  --formBG: #a9907e;
+  --bgButton: #abc4aa;
   --colorButton: red;
   --padS: 0.5rem;
   --padM: 1rem;
@@ -15,7 +15,7 @@
 }
 
 * {
-  /* border: 1px solid red; */
+  border: 1px solid red;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -101,7 +101,8 @@ form {
   padding: var(--padXL) var(--padM);
   background-color: var(--formBG);
   text-align: center;
-  display: grid;
+  /* display: grid; */
+  display: none;
   grid-template: repeat(5, 1fr) / 1fr 5fr;
   gap: var(--padM);
 }
@@ -147,6 +148,8 @@ form input {
 ******************/
 
 .library {
+  display: grid;
+  grid-template: repeat(6, 1fr) / repeat(2, 1fr);
   position: absolute;
 }
 
