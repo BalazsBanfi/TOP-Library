@@ -49,15 +49,27 @@ function showLibrary() {
     Object.keys(Obj).forEach((key) => {
       const newP = document.createElement("p");
       newP.innerHTML = Obj[key];
-      if (key === "read" && Obj[key] === true) {
-        newP.classList.add("true");
-        newP.classList.add("read");
-      } else {
-        newP.classList.add("false");
-        newP.classList.add("read");
+      if (key === "read") {
+        if (Obj[key] === true) {
+          newP.classList.add("true");
+          newP.classList.add("read");
+        } else {
+          newP.classList.add("false");
+          newP.classList.add("read");
+        }
       }
       cardSet.appendChild(newP);
     });
+
+    const indexNo = document.createElement("div");
+    indexNo.innerHTML = i + 1;
+    indexNo.classList.add("indexNo");
+    cardSet.appendChild(indexNo);
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.innerHTML = "Delete";
+    deleteBtn.classList.add("delete");
+    cardSet.appendChild(deleteBtn);
 
     cardSet.classList.add("card");
     library.appendChild(cardSet);
