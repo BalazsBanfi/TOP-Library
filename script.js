@@ -39,11 +39,18 @@ function setGrid() {
 
 function deleteCard() {
   this.style.backgroundColor = "black";
-  console.log(this.parentNode.getAttribute('id'));
   let k = this.parentNode.getAttribute('id');
   myLibrary.splice(k, 1);
   showLibrary();
 }
+
+function toggleRead() {
+  this.style.backgroundColor = "black";
+  let k = this.parentNode.getAttribute('id');
+  myLibrary[k].read = !myLibrary[k].read;
+  showLibrary();
+}
+
 
 function showLibrary() {
   library.style.display = "grid";
@@ -65,6 +72,7 @@ function showLibrary() {
           newP.classList.add("read");
         }
       }
+      newP.addEventListener('click', toggleRead);
       cardSet.appendChild(newP);
     });
 
