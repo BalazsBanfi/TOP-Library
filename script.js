@@ -24,10 +24,6 @@ class Book {
   }
 }
 
-// Object prototype with read toggle function
-/*Book.prototype.toggleReaded = function () {
-  this.read = !this.read;
-};*/
 
 // Add new object0
 function addBookToLibrary() {
@@ -123,6 +119,11 @@ submit.addEventListener("click", () => {
   addBookToLibrary();
   form.style.display = "none";
   addBook.style.display = "block";
+  title.value = '';
+  author.value = '';
+  pages.value = '';
+  read.checked = false;
+  
   showLibrary();
 });
 
