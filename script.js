@@ -11,17 +11,23 @@ const submit = document.getElementById("submit");
 let myLibrary = [];
 
 // Object constuctor
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
+
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
+  toggleReaded() {
+    this.read = !this.read;  
+  }
 }
 
 // Object prototype with read toggle function
-Book.prototype.toggleReaded = function () {
+/*Book.prototype.toggleReaded = function () {
   this.read = !this.read;
-};
+};*/
 
 // Add new object0
 function addBookToLibrary() {
