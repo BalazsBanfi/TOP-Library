@@ -7,9 +7,6 @@ const pages = document.getElementById("pages");
 const read = document.getElementById("read");
 const submit = document.getElementById("submit");
 
-// Library array
-let myLibrary = [];
-
 // Object constuctor
 
 class Book {
@@ -20,10 +17,24 @@ class Book {
     this.read = read;
   }
   toggleReaded() {
-    this.read = !this.read;  
+    this.read = !this.read;
   }
 }
 
+// Library array
+let myLibrary = [];
+console.table(JSON.parse(localStorage.getItem("libraire")));
+let localLibrary = [...JSON.parse(localStorage.getItem("libraire"))];
+for (let i = 0; i < localLibrary.length; i++) {
+  myLibrary.push(
+    new Book(
+      localLibrary[i].title,
+      localLibrary[i].author,
+      localLibrary[i].pages,
+      localLibrary[i].read
+    )
+  );
+}
 
 // Add new object0
 function addBookToLibrary() {
@@ -59,12 +70,19 @@ function deleteCard() {
 // Toggle read status on click
 function toggleRead() {
   let k = this.parentNode.getAttribute("id");
+  console.log(myLibrary[k] + "" + myLibrary[k].read);
   myLibrary[k].toggleReaded();
   showLibrary();
 }
 
+function storeArray() {
+  localStorage.setItem("libraire", JSON.stringify(myLibrary));
+  console.table(myLibrary);
+}
+
 // Show and refresh library on screen
 function showLibrary() {
+  storeArray();
   setGrid();
   library.style.display = "grid";
   let l = myLibrary.length;
@@ -119,20 +137,12 @@ submit.addEventListener("click", () => {
   addBookToLibrary();
   form.style.display = "none";
   addBook.style.display = "block";
-  title.value = '';
-  author.value = '';
-  pages.value = '';
+  title.value = "";
+  author.value = "";
+  pages.value = "";
   read.checked = false;
-  
+
   showLibrary();
 });
-
-
-const donq = new Book("Don Quixote", "Miguel de Cervantes", "314", true);
-const proust = new Book("In search of lost time", "Marcel Proust", "425", true);
-const lord = new Book("The Lord of The Rings", "Tolkien", "870", false);
-myLibrary.push(lord);
-myLibrary.push(proust);
-myLibrary.push(donq);
 
 showLibrary();
