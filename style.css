@@ -121,6 +121,14 @@ form input {
   font-size: 1.25rem;
 }
 
+form input:valid {
+  background-color: #494;
+}
+
+form input:invalid {
+  background-color: #944;
+}
+
 #submit {
   grid-column: 2 / 3;
   padding: var(--padS);
@@ -201,7 +209,8 @@ form input {
   transition-duration: 0.3s;
 }
 
-.true:active, .false:active {
+.true:active,
+.false:active {
   box-shadow: 0 2px #222;
   transform: translateY(3px);
 }
